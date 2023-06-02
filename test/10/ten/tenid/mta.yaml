@@ -1,0 +1,69 @@
+_schema-version: "3.2"
+ID: tenid
+description: ten
+version: 0.0.1
+modules:
+- name: tenid-dest-content
+  type: com.sap.application.content
+  requires:
+  - name: tenid-dest-srv
+    parameters:
+      content-target: true
+  - name: tenid-repo-host
+    parameters:
+      service-key:
+        name: tenid-repo-host-key
+  - name: tenid-uaa
+    parameters:
+      service-key:
+        name: tenid-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: tenid_repo_host
+          ServiceInstanceName: tenid-html5-srv
+          ServiceKeyName: tenid-repo-host-key
+          sap.cloud.service: tenid
+        - Authentication: OAuth2UserTokenExchange
+          Name: tenid_uaa
+          ServiceInstanceName: tenid-xsuaa-srv
+          ServiceKeyName: tenid-uaa-key
+          sap.cloud.service: tenid
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
+resources:
+- name: tenid-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json  
+    service: xsuaa
+    service-name: tenid-xsuaa-srv
+    service-plan: application
+- name: tenid-dest-srv
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      version: 1.0.0
+      init_data:
+        instance:
+          existing_destinations_policy: update
+          destinations:
+          - Name: ui5
+            Type: HTTP
+            URL: https://ui5.sap.com
+            ProxyType: Internet
+            Authentication: NoAuthentication
+    service: destination
+    service-name: tenid-dest-srv
+    service-plan: lite
+- name: tenid-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: tenid-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo

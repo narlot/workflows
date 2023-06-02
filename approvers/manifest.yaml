@@ -1,0 +1,9 @@
+---
+applications:
+  - name: approvers-service
+    command: node app.js
+    random-route: true
+    path: app
+    buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+    host:  approvers-service
+    memory: 128M

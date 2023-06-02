@@ -1,0 +1,42 @@
+{
+    "id": "tutorialwfform",
+    "schemaVersion": "1.1.0",
+    "name": "tutorialwfform",
+    "revision": "v1",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "employeeid",
+            "type": "string",
+            "label": "Employee ID",
+            "readOnly": true,
+            "value": "${context.employeeid}",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "id": "employeename",
+            "type": "string",
+            "label": "Employee Name",
+            "readOnly": true,
+            "value": "${context.employeename}",
+            "constraints": {
+                "required": false
+            }
+        }
+    ],
+    "decisions": [
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}

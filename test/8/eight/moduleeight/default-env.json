@@ -1,0 +1,38 @@
+{
+    "VCAP_SERVICES": {
+        "xsuaa": [
+            {
+                "name": "eight-xsuaa-service",
+                "instance_name": "eight-xsuaa-service",
+                "label": "xsuaa",
+                "tags": [
+                    "xsuaa",
+                    "endpoint:https://api.cf.eu10.hana.ondemand.com",
+                    "org:ecenta-de",
+                    "space:dev"
+                ],
+                "plan": "application",
+                "credentials": {
+                    "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+                    "clientid": "sb-eight!t89785",
+                    "clientsecret": "9VezCNkG7NHFYWLrvwqYS9yXAF8=",
+                    "credential-type": "instance-secret",
+                    "identityzone": "ecenta-de",
+                    "identityzoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+                    "service_key_name": "key",
+                    "subaccountid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "tenantid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "tenantmode": "dedicated",
+                    "uaadomain": "authentication.eu10.hana.ondemand.com",
+                    "url": "https://ecenta-de.authentication.eu10.hana.ondemand.com",
+                    "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2rF5PFn6PbuNXt/PwCcUdYqc8Zn8pV6ySx1aCvt97K1fWE5iNCtxojsz8k1rT+pFSwT0lnZ2qXhpxaeqFdxSOB1y6ILJWsDyqDP7W1UpMZ7Y8FIBFzGtshHG/67cPRkPg1IdhKDNJVN6w6u395dQb22F2GMxYMf14/dFT2V8BaZ8cWcahb2avs9iiAP2ORL3eW45AmG3fcX/zWr9/JMse+VzEu0nZjiJDfgtW4diK1H8KqnOX32DB7guHzotddhf5+nFcQCdWFr/VJt1aKkeqbS54uWBseeuMgb1xaOEf/RYw+CCM6H5WlQWIf+w1zfXX3NPYaldx0X73sxWjhRugwIDAQAB-----END PUBLIC KEY-----",
+                    "xsappname": "eight!t89785",
+                    "zoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "grant_type": "user_token",
+                    "forwardAuthToken": true
+                }
+            }
+        ]
+    }
+}

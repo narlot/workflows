@@ -1,0 +1,12 @@
+{
+	"QuoteID": "424",
+    "ApprovalSteps": [
+        {
+            "StepID": 0,
+            "Approver": {
+                "Email": "aleksandrs.antonuks@ecenta.com",
+                "Appeal": "Dear Approver"
+            }
+        }
+    ]
+}

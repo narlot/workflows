@@ -1,0 +1,30 @@
+{
+    "welcomeFile": "/index.html",
+    "authenticationMethod": "route",
+    "logout": {
+        "logoutEndpoint": "/do/logout"
+    },
+    "routes": [
+        {
+            "path":"/workflow-service",
+            "target":{
+                "type":"destination",
+                "name":"bpmworkflowruntime",
+                "entryPath":"/rest"
+            }
+        },
+        {
+            "source": "^/bpmworkflowruntime/(.*)$",
+            "target": "/$1",
+            "service": "com.sap.bpm.workflow",
+            "endpoint": "workflow_rest_url",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^(.*)$",
+            "target": "$1",
+            "service": "html5-apps-repo-rt",
+            "authenticationType": "xsuaa"
+        }
+    ]
+}

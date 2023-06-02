@@ -1,0 +1,15 @@
+{
+    "definitionId": "",
+    "context": {
+        "QuoteID": "",
+        "ApprovalSteps": [
+            {
+                "StepID": "",
+                "Approver": {
+                    "Appeal": "",
+                    "Email": ""
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "destinations":{
+        "name":"bpmworkflowruntime",
+        "url":"https://ecenta-de.authentication.eu10.hana.ondemand.com/oauth/token?grant_type=client_credentials",
+        "forwardAuthToken": true
+    },
+    "VCAP_SERVICES": {
+        "workflow": [
+            {
+                "name": "wm_workflow",
+                "instance_name": "wm_workflow",
+                "label": "workflow",
+                "tags": [
+                    "endpoint:https://api.cf.eu10.hana.ondemand.com",
+                    "org:ecenta-de",
+                    "space:dev"
+                ],
+                "plan": "standard",
+                "credentials": {
+                    "content_endpoint": "https://api.workflow-sap.cfapps.eu10.hana.ondemand.com/workflow-deploy/rest/internal/v1",
+                    "endpoints": {
+                        "workflow_odata_url": "https://api.workflow-sap.cfapps.eu10.hana.ondemand.com/workflow-service/odata",
+                        "workflow_rest_url": "https://api.workflow-sap.cfapps.eu10.hana.ondemand.com/workflow-service/rest"
+                    },
+                    "html5-apps-repo": {
+                        "app_host_id": "1365363a-6e04-4f43-876a-67b81f32306e,1a5b93af-f1af-4acf-aee0-8c6cc8d3f315,8964e911-e35d-4cfd-972e-08e681a2df0f,9ea7410f-80ea-4b19-bbf0-4fca238ef098"
+                    },
+                    "portal_content_provider": {
+                        "instance_id": "b87e14b7-ea72-4866-80b7-fe284e75e83a"
+                    },
+                    "saasregistryappname": "workflow",
+                    "sap.cloud.service": "com.sap.bpm.workflow",
+                    "service_key_name": "key",
+                    "uaa": {
+                        "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+                        "clientid": "sb-clone-b3428f56-3a54-430f-a379-15a5f2fab628!b89785|workflow!b10150",
+                        "clientsecret": "fbe5ce85-3512-432e-a81b-0cf04b6b5c35$9IMlMkgXX5zycx1kCHzp98GlYxMvmQYgrKY-6fsn_xM=",
+                        "credential-type": "binding-secret",
+                        "identityzone": "ecenta-de",
+                        "identityzoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                        "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+                        "subaccountid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                        "tenantid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                        "tenantmode": "dedicated",
+                        "uaadomain": "authentication.eu10.hana.ondemand.com",
+                        "url": "https://ecenta-de.authentication.eu10.hana.ondemand.com",
+                        "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2rF5PFn6PbuNXt/PwCcUdYqc8Zn8pV6ySx1aCvt97K1fWE5iNCtxojsz8k1rT+pFSwT0lnZ2qXhpxaeqFdxSOB1y6ILJWsDyqDP7W1UpMZ7Y8FIBFzGtshHG/67cPRkPg1IdhKDNJVN6w6u395dQb22F2GMxYMf14/dFT2V8BaZ8cWcahb2avs9iiAP2ORL3eW45AmG3fcX/zWr9/JMse+VzEu0nZjiJDfgtW4diK1H8KqnOX32DB7guHzotddhf5+nFcQCdWFr/VJt1aKkeqbS54uWBseeuMgb1xaOEf/RYw+CCM6H5WlQWIf+w1zfXX3NPYaldx0X73sxWjhRugwIDAQAB-----END PUBLIC KEY-----",
+                        "xsappname": "clone-b3428f56-3a54-430f-a379-15a5f2fab628!b89785|workflow!b10150",
+                        "zoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1"
+                    }
+                }
+            }
+        ]
+    }
+}

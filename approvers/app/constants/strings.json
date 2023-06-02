@@ -1,0 +1,8 @@
+{
+    "InvalidQuote": "Invalid QuoteID.",
+    "NoMandatoryParameter": "No mandatory parameter [QuoteID] provided.",
+    "NoApprovers": "No approvers.",
+    "QuoteNotFound": "Quote not found.",
+    "WorkflowBodyNotCreated": "Workflow body is not created.",
+    "WorkflowNotStarted": "Workflow not started."
+}

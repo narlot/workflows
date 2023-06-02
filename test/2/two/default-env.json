@@ -1,0 +1,110 @@
+{
+    "VCAP_SERVICES": {
+        "destination": [
+            {
+                "name": "two-destination-service",
+                "instance_name": "two-destination-service",
+                "label": "destination",
+                "tags": [
+                    "destination",
+                    "conn",
+                    "connsvc",
+                    "endpoint:https://api.cf.eu10.hana.ondemand.com",
+                    "org:ecenta-de",
+                    "space:dev"
+                ],
+                "plan": "lite",
+                "credentials": {
+                    "clientid": "sb-clone5ea5b7229b314d1fa9b0d30c258e467d!b89785|destination-xsappname!b404",
+                    "clientsecret": "86a13400-8a8a-471c-b56c-5d917585d8cf$zify9brkgevgfv3RV6IuG3cNJ4N1rhfcSjrxUSROEcI=",
+                    "identityzone": "ecenta-de",
+                    "instanceid": "5ea5b722-9b31-4d1f-a9b0-d30c258e467d",
+                    "service_key_name": "key",
+                    "tenantid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "tenantmode": "dedicated",
+                    "uaadomain": "authentication.eu10.hana.ondemand.com",
+                    "uri": "https://destination-configuration.cfapps.eu10.hana.ondemand.com",
+                    "url": "https://ecenta-de.authentication.eu10.hana.ondemand.com",
+                    "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2rF5PFn6PbuNXt/PwCcUdYqc8Zn8pV6ySx1aCvt97K1fWE5iNCtxojsz8k1rT+pFSwT0lnZ2qXhpxaeqFdxSOB1y6ILJWsDyqDP7W1UpMZ7Y8FIBFzGtshHG/67cPRkPg1IdhKDNJVN6w6u395dQb22F2GMxYMf14/dFT2V8BaZ8cWcahb2avs9iiAP2ORL3eW45AmG3fcX/zWr9/JMse+VzEu0nZjiJDfgtW4diK1H8KqnOX32DB7guHzotddhf5+nFcQCdWFr/VJt1aKkeqbS54uWBseeuMgb1xaOEf/RYw+CCM6H5WlQWIf+w1zfXX3NPYaldx0X73sxWjhRugwIDAQAB-----END PUBLIC KEY-----",
+                    "xsappname": "clone5ea5b7229b314d1fa9b0d30c258e467d!b89785|destination-xsappname!b404"
+                }
+            }
+        ],
+        "html5-apps-repo": [
+            {
+                "name": "two-html5-app-host-service",
+                "instance_name": "two-html5-app-host-service",
+                "label": "html5-apps-repo",
+                "tags": [
+                    "html5appsrepo",
+                    "html5-apps-repo-rt",
+                    "html5-apps-rt",
+                    "html5-apps-repo-dt",
+                    "html5-apps-dt",
+                    "endpoint:https://api.cf.eu10.hana.ondemand.com",
+                    "org:ecenta-de",
+                    "space:dev"
+                ],
+                "plan": "app-host",
+                "credentials": {
+                    "app_host_id": "d6073b1e-e40f-4a10-b3f7-e9e19ac3efa9",
+                    "content_endpoint": "https://html5-apps-repo-dt.cfapps.eu10.hana.ondemand.com",
+                    "saasregistryenabled": true,
+                    "sap.cloud.service": "html5-apps-repo-dt",
+                    "service_key_name": "key",
+                    "uaa": {
+                        "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+                        "clientid": "sb-d6073b1e-e40f-4a10-b3f7-e9e19ac3efa9!b89785|html5-apps-repo-uaa!b1685",
+                        "clientsecret": "c4fd5b44-7f0d-49d5-a114-02e60d8f6ae0$CTSYRLTTKVFoJSim06nb5K1FOPHdLQZiEdF8G3tgs8I=",
+                        "credential-type": "binding-secret",
+                        "identityzone": "ecenta-de",
+                        "identityzoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                        "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+                        "subaccountid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                        "tenantid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                        "tenantmode": "dedicated",
+                        "uaadomain": "authentication.eu10.hana.ondemand.com",
+                        "url": "https://ecenta-de.authentication.eu10.hana.ondemand.com",
+                        "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2rF5PFn6PbuNXt/PwCcUdYqc8Zn8pV6ySx1aCvt97K1fWE5iNCtxojsz8k1rT+pFSwT0lnZ2qXhpxaeqFdxSOB1y6ILJWsDyqDP7W1UpMZ7Y8FIBFzGtshHG/67cPRkPg1IdhKDNJVN6w6u395dQb22F2GMxYMf14/dFT2V8BaZ8cWcahb2avs9iiAP2ORL3eW45AmG3fcX/zWr9/JMse+VzEu0nZjiJDfgtW4diK1H8KqnOX32DB7guHzotddhf5+nFcQCdWFr/VJt1aKkeqbS54uWBseeuMgb1xaOEf/RYw+CCM6H5WlQWIf+w1zfXX3NPYaldx0X73sxWjhRugwIDAQAB-----END PUBLIC KEY-----",
+                        "xsappname": "d6073b1e-e40f-4a10-b3f7-e9e19ac3efa9!b89785|html5-apps-repo-uaa!b1685",
+                        "zoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1"
+                    },
+                    "uri": "https://html5-apps-repo-dt.cfapps.eu10.hana.ondemand.com",
+                    "vendor": "SAP"
+                }
+            }
+        ],
+        "xsuaa": [
+            {
+                "name": "two-xsuaa-service",
+                "instance_name": "two-xsuaa-service",
+                "label": "xsuaa",
+                "tags": [
+                    "xsuaa",
+                    "endpoint:https://api.cf.eu10.hana.ondemand.com",
+                    "org:ecenta-de",
+                    "space:dev"
+                ],
+                "plan": "application",
+                "credentials": {
+                    "apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+                    "clientid": "sb-two!t89785",
+                    "clientsecret": "8GJi84w9IlK+nBu2ZN2we286hLw=",
+                    "credential-type": "instance-secret",
+                    "identityzone": "ecenta-de",
+                    "identityzoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+                    "service_key_name": "key",
+                    "subaccountid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "tenantid": "166c14a4-b2a0-4086-8330-af3422a58ce1",
+                    "tenantmode": "dedicated",
+                    "uaadomain": "authentication.eu10.hana.ondemand.com",
+                    "url": "https://ecenta-de.authentication.eu10.hana.ondemand.com",
+                    "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2rF5PFn6PbuNXt/PwCcUdYqc8Zn8pV6ySx1aCvt97K1fWE5iNCtxojsz8k1rT+pFSwT0lnZ2qXhpxaeqFdxSOB1y6ILJWsDyqDP7W1UpMZ7Y8FIBFzGtshHG/67cPRkPg1IdhKDNJVN6w6u395dQb22F2GMxYMf14/dFT2V8BaZ8cWcahb2avs9iiAP2ORL3eW45AmG3fcX/zWr9/JMse+VzEu0nZjiJDfgtW4diK1H8KqnOX32DB7guHzotddhf5+nFcQCdWFr/VJt1aKkeqbS54uWBseeuMgb1xaOEf/RYw+CCM6H5WlQWIf+w1zfXX3NPYaldx0X73sxWjhRugwIDAQAB-----END PUBLIC KEY-----",
+                    "xsappname": "two!t89785",
+                    "zoneid": "166c14a4-b2a0-4086-8330-af3422a58ce1"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,92 @@
+_schema-version: "3.2"
+ID: seven
+version: 0.0.1
+modules:
+- name: seven-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: seven-destination-service
+    parameters:
+      content-target: true
+  - name: seven_html_repo_host
+    parameters:
+      service-key:
+        name: seven_html_repo_host-key
+  - name: uaa_seven
+    parameters:
+      service-key:
+        name: uaa_seven-key
+  parameters:
+    content:
+      subaccount:
+        destinations:
+        - Name: seventh_seven_html_repo_host
+          ServiceInstanceName: seven-html5-app-host-service
+          ServiceKeyName: seven_html_repo_host-key
+          sap.cloud.service: seventh
+        - Authentication: OAuth2UserTokenExchange
+          Name: seventh_uaa_seven
+          ServiceInstanceName: seven-xsuaa-service
+          ServiceKeyName: uaa_seven-key
+          sap.cloud.service: seventh
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: seven-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: seven_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - nsworkflowuimodule.zip
+      name: nsworkflowuimodule
+      target-path: resources/
+- name: nsworkflowuimodule
+  type: html5
+  path: workflow-ui-module
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: seven-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        subaccount:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: seven-destination-service
+    service-plan: lite
+- name: seven_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: seven-html5-app-host-service
+    service-plan: app-host
+- name: uaa_seven
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: seven-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo

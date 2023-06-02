@@ -1,0 +1,39 @@
+{
+    "id": "approvalform",
+    "schemaVersion": "1.1.0",
+    "name": "approvalform",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "",
+            "type": "section",
+            "title": "",
+            "content": [
+                {
+                    "id": "quoteid",
+                    "type": "string",
+                    "label": "Quote ID",
+                    "readOnly": true,
+                    "value": "${context.QuoteID}",
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        }
+    ],
+    "decisions": [
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}

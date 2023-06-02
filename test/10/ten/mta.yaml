@@ -1,0 +1,99 @@
+_schema-version: "3.2"
+ID: ten-ns-ten
+description: A Fiori application.
+version: 0.0.1
+modules:
+- name: ten-ns-ten-dest-content
+  type: com.sap.application.content
+  requires:
+  - name: ten-ns-ten-dest-srv
+    parameters:
+      content-target: true
+  - name: ten-ns-ten-repo-host
+    parameters:
+      service-key:
+        name: ten-ns-ten-repo-host-key
+  - name: ten-ns-ten-uaa
+    parameters:
+      service-key:
+        name: ten-ns-ten-uaa-key
+  parameters:
+    content:
+      subaccount:
+        destinations:
+        - Name: ten-ns-ten_repo_host
+          ServiceInstanceName: ten-ns-ten-html5-srv
+          ServiceKeyName: ten-ns-ten-repo-host-key
+          sap.cloud.service: ten-ns-ten
+        - Authentication: OAuth2UserTokenExchange
+          Name: ten-ns-ten_uaa
+          ServiceInstanceName: ten-ns-ten-xsuaa-srv
+          ServiceKeyName: ten-ns-ten-uaa-key
+          sap.cloud.service: ten-ns-ten
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: ten-ns-ten-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: ten-ns-ten-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - tennsten.zip
+      name: tennsten
+      target-path: resources/
+- name: tennsten
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: ten-ns-ten-dest-srv
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        subaccount:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: ten-ns-ten-dest-srv
+    service-plan: lite
+- name: ten-ns-ten-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: ten-ns-ten-xsuaa-srv
+    service-plan: application
+- name: ten-ns-ten-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: ten-ns-ten-html5-srv
+    service-plan: app-host
+- name: wm_workflow
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service: workflow
+    service-plan: standard
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true

@@ -1,0 +1,8 @@
+/mta_archives/
+/node_modules/
+/resources/
+
+# auto generated wildcard
+eight/moduleeight/.env
+# auto generated wildcard
+.env
